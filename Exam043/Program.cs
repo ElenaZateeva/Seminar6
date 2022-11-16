@@ -14,7 +14,13 @@ if (!isParsedK1 || !isParsedK2 || !isParsedB1 || !isParsedB2)
     Console.WriteLine("Ошибка ввода данных!");
     return;
 }
-double x=(b2 - b1)/(k1 - k2);
-double y=k1*x+b1;
-  Console.WriteLine();
-  Console.WriteLine($"Точка пересечения: ({x}; {y})");
+(double, double) line=LineIntersectionPoint(k1, k2, b1, b2);
+Console.WriteLine();
+Console.WriteLine($"Точка пересечения: ({line.Item1}; {line.Item2})");
+
+(double, double) LineIntersectionPoint(double k1, double k2, double b1, double b2)
+{
+    double x = (b2 - b1) / (k1 - k2);
+    double y = k1 * x + b1;
+    return (x, y);
+}
